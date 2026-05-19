@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ Prayers & Light For Youssra ✨</title>
+
+<!-- Bootstrap 5 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --royal-blue: #0a0f2e;
+    --midnight: #04060f;
+    --gold: #d4a843;
+    --gold-light: #f0c96a;
+    --gold-glow: #ffde8a;
+    --silver: #c8d8e8;
+    --moonlight: #e8f0ff;
+    --amber: #e8941a;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(212,168,67,0.2);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:80px; }
+
+  body {
+    background: var(--midnight);
+    color: var(--moonlight);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ── CURSOR ── */
+  #cursor {
+    position:fixed; width:12px; height:12px; border-radius:50%;
+    background: radial-gradient(circle, #f0c96a, #d4a843);
+    pointer-events:none; z-index:9999; transform:translate(-50%,-50%);
+    box-shadow: 0 0 20px #f0c96a, 0 0 40px #d4a84388;
+  }
+  #cursor-trail {
+    position:fixed; width:32px; height:32px; border-radius:50%;
+    border: 1px solid rgba(212,168,67,0.5);
+    pointer-events:none; z-index:9998; transform:translate(-50%,-50%);
+    transition: left .12s ease, top .12s ease;
+  }
+
+  /* ── CANVAS ── */
+  #sky-canvas { position:fixed; inset:0; width:100%; height:100%; z-index:0; }
+
+  /* ── BOOTSTRAP NAVBAR OVERRIDE ── */
+  .navbar {
+    background: linear-gradient(to bottom, rgba(4,6,15,0.96), rgba(4,6,15,0.6)) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,168,67,0.1);
+    padding: 14px 0;
+    z-index: 1050;
+  }
+  .navbar-brand {
+    font-family:'Cinzel Decorative',serif;
+    font-size:1.15rem; color: var(--gold-light) !important;
+    letter-spacing:3px;
+    text-shadow: 0 0 20px var(--gold);
+    direction: ltr;
+  }
+  .navbar-toggler {
+    border-color: rgba(212,168,67,0.4) !important;
+    background: rgba(212,168,67,0.08);
+  }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28212%2C168%2C67%2C0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+  .nav-link {
+    color: var(--silver) !important;
+    font-family:'EB Garamond',serif;
+    font-size: .82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px !important;
+    transition: color .3s, text-shadow .3s !important;
+    direction: ltr;
+    position: relative;
+  }
+  .nav-link::after {
+    content:'';
+    position:absolute; bottom:2px; left:50%; right:50%;
+    height:1px; background: var(--gold);
+    transition: left .3s, right .3s;
+  }
+  .nav-link:hover::after { left:16px; right:16px; }
+  .nav-link:hover {
+    color: var(--gold-light) !important;
+    text-shadow: 0 0 12px var(--gold);
+  }
+  .navbar-collapse { direction: ltr; }
+
+  /* Enter Universe nav button */
+  .nav-btn-enter {
+    background: linear-gradient(135deg, rgba(212,168,67,0.2), rgba(212,168,67,0.05));
+    border: 1px solid var(--gold) !important;
+    color: var(--gold-light) !important;
+    border-radius: 0 !important;
+    padding: 7px 20px !important;
+    box-shadow: 0 0 15px rgba(212,168,67,0.15);
+    transition: all .3s ease !important;
+  }
+  .nav-btn-enter:hover {
+    background: linear-gradient(135deg, rgba(212,168,67,0.35), rgba(212,168,67,0.15)) !important;
+    box-shadow: 0 0 30px rgba(212,168,67,0.4) !important;
+    color: #fff !important;
+  }
+  .nav-btn-enter::after { display:none; }
+
+  /* Mobile menu dark */
+  @media(max-width:991px){
+    .navbar-collapse {
+      background: rgba(4,6,15,0.97);
+      border: 1px solid rgba(212,168,67,0.12);
+      margin-top:10px; padding:16px;
+      border-radius:2px;
+    }
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:120px 24px 60px;
+  }
+  .moon-container {
+    position:absolute; top:-60px; left:50%; transform:translateX(-50%);
+    width:380px; height:380px; z-index:0; pointer-events:none;
+  }
+  .moon {
+    width:100%; height:100%; border-radius:50%;
+    background: radial-gradient(circle at 40% 35%, #fffbe8, #f5dea0 40%, #c8a84b 75%, transparent);
+    box-shadow:
+      0 0 60px 30px rgba(212,168,67,0.35),
+      0 0 120px 60px rgba(212,168,67,0.2),
+      0 0 220px 100px rgba(212,168,67,0.1);
+    animation: moonPulse 6s ease-in-out infinite;
+  }
+  @keyframes moonPulse {
+    0%,100%{box-shadow:0 0 60px 30px rgba(212,168,67,.35),0 0 120px 60px rgba(212,168,67,.2),0 0 220px 100px rgba(212,168,67,.1);}
+    50%    {box-shadow:0 0 80px 40px rgba(212,168,67,.5),0 0 160px 80px rgba(212,168,67,.3),0 0 280px 120px rgba(212,168,67,.15);}
+  }
+  .moon-ring {
+    position:absolute; inset:-20px; border-radius:50%;
+    border:1px solid rgba(212,168,67,0.15);
+    animation:ringRotate 30s linear infinite;
+  }
+  .moon-ring:nth-child(3){inset:-40px;border-color:rgba(212,168,67,0.07);animation-duration:50s;animation-direction:reverse;}
+  @keyframes ringRotate{to{transform:rotate(360deg);}}
+
+  .hero-eyebrow {
+    position:relative; z-index:2;
+    font-family:'Amiri',serif; font-size:1rem; color:var(--gold);
+    letter-spacing:6px; margin-bottom:20px;
+    animation:fadeUp 1.4s ease both .3s;
+    text-shadow:0 0 20px var(--gold);
+  }
+  .hero-title {
+    position:relative; z-index:2;
+    font-family:'Cinzel Decorative',serif;
+    font-size:clamp(2rem,6vw,5rem); font-weight:900; line-height:1.1;
+    background:linear-gradient(135deg,#fff8e0 0%,#f0c96a 35%,#d4a843 60%,#fff0a0 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 30px rgba(212,168,67,0.6));
+    animation:fadeUp 1.6s ease both .5s;
+    margin-bottom:28px; direction:ltr;
+  }
+  .hero-arabic {
+    position:relative; z-index:2;
+    font-family:'Amiri',serif; font-size:clamp(1.2rem,3vw,2rem); font-style:italic;
+    color:var(--gold-glow);
+    text-shadow:0 0 30px rgba(212,168,67,0.7),0 0 60px rgba(212,168,67,0.3);
+    animation:fadeUp 1.8s ease both .8s, arabicGlow 4s ease-in-out infinite 2.6s;
+    margin-bottom:24px; line-height:1.8; max-width:700px;
+  }
+  @keyframes arabicGlow{
+    0%,100%{text-shadow:0 0 30px rgba(212,168,67,.7),0 0 60px rgba(212,168,67,.3);}
+    50%    {text-shadow:0 0 50px rgba(212,168,67,1),0 0 90px rgba(212,168,67,.5),0 0 140px rgba(212,168,67,.2);}
+  }
+  .hero-quote {
+    position:relative; z-index:2;
+    font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,2vw,1.3rem);
+    font-style:italic; color:rgba(220,230,255,0.82);
+    max-width:560px; line-height:1.9;
+    animation:fadeUp 2s ease both 1.1s; direction:ltr; margin-bottom:44px;
+  }
+
+  /* Hero nav pills */
+  .hero-nav-pills {
+    position:relative; z-index:2;
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    margin-bottom:36px;
+    animation:fadeUp 2s ease both 1.2s;
+    direction:ltr;
+  }
+  .hero-pill {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:9px 22px;
+    border:1px solid rgba(212,168,67,0.3);
+    color:rgba(220,230,255,0.8);
+    font-family:'EB Garamond',serif; font-size:.8rem;
+    letter-spacing:1.5px; text-transform:uppercase; text-decoration:none;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(8px);
+    transition:all .35s ease;
+    border-radius:1px;
+  }
+  .hero-pill:hover {
+    border-color:var(--gold);
+    color:var(--gold-light);
+    background:rgba(212,168,67,0.1);
+    box-shadow:0 0 20px rgba(212,168,67,0.2);
+    transform:translateY(-2px);
+  }
+
+  .hero-cta {
+    position:relative; z-index:2;
+    display:inline-block; padding:15px 52px;
+    border:1px solid var(--gold);
+    color:var(--gold-light); font-family:'EB Garamond',serif;
+    font-size:.92rem; letter-spacing:3px; text-transform:uppercase;
+    text-decoration:none;
+    background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(212,168,67,0.02));
+    backdrop-filter:blur(8px);
+    transition:all .4s ease;
+    animation:fadeUp 2.2s ease both 1.5s; direction:ltr;
+    box-shadow:0 0 20px rgba(212,168,67,0.15),inset 0 0 20px rgba(212,168,67,0.05);
+  }
+  .hero-cta:hover {
+    background:linear-gradient(135deg,rgba(212,168,67,0.3),rgba(212,168,67,0.1));
+    box-shadow:0 0 50px rgba(212,168,67,0.45),inset 0 0 30px rgba(212,168,67,0.15);
+    transform:translateY(-3px); color:#fff;
+  }
+
+  .scroll-indicator {
+    position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+    z-index:2; animation:bounce 2s ease-in-out infinite 3.5s; opacity:.5;
+  }
+  .scroll-indicator span{display:block;width:1px;height:55px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto;}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+  /* ── SECTIONS ── */
+  section { position:relative; z-index:1; }
+  .section-inner { max-width:1200px; margin:0 auto; padding:90px 24px; }
+  .section-header { text-align:center; margin-bottom:64px; }
+  .section-label {
+    font-family:'EB Garamond',serif; font-size:.75rem; letter-spacing:5px;
+    text-transform:uppercase; color:var(--gold); margin-bottom:14px; direction:ltr;
+    display:block;
+  }
+  .section-title {
+    font-family:'Cinzel Decorative',serif; font-size:clamp(1.7rem,4vw,3rem);
+    background:linear-gradient(135deg,#fff8e0,#f0c96a,#d4a843);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 20px rgba(212,168,67,.4)); direction:ltr;
+  }
+  .section-divider {
+    width:80px; height:1px; margin:20px auto;
+    background:linear-gradient(to right,transparent,var(--gold),transparent);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    position:relative; overflow:hidden;
+    background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
+    border:1px solid var(--glass-border) !important;
+    border-radius:4px !important;
+    padding:40px 32px;
+    backdrop-filter:blur(16px);
+    transition:transform .5s ease, box-shadow .5s ease, border-color .5s ease;
+    opacity:0; transform:translateY(40px);
+    color: var(--moonlight);
+    height:100%;
+  }
+  .card.visible { animation:cardReveal .8s ease forwards; }
+  @keyframes cardReveal{to{opacity:1;transform:translateY(0);}}
+  .card::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at top left,rgba(212,168,67,0.06),transparent 60%);
+    pointer-events:none;
+  }
+  .card::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:1px;
+    background:linear-gradient(to right,transparent,var(--gold-light),transparent);
+    transition:left .6s ease;
+  }
+  .card:hover::after{left:100%;}
+  .card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(212,168,67,.12) !important;
+    border-color:rgba(212,168,67,0.4) !important;
+  }
+  .card-icon{font-size:2rem;margin-bottom:16px;display:block;}
+  .card-title{
+    font-family:'Cinzel Decorative',serif;font-size:.95rem;color:var(--gold-light);
+    letter-spacing:2px;margin-bottom:16px;direction:ltr;
+  }
+  .card-arabic{
+    font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold-glow);
+    margin-bottom:16px;line-height:1.9;text-align:center;
+    text-shadow:0 0 15px rgba(212,168,67,0.5);
+  }
+  .card-text{
+    font-family:'Cormorant Garamond',serif;font-size:1.02rem;
+    color:rgba(220,230,255,0.75);line-height:1.8;font-style:italic;direction:ltr;
+    margin:0;
+  }
+  .card-glow{
+    position:absolute;bottom:-30px;right:-30px;width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,168,67,0.08),transparent 70%);
+    pointer-events:none;
+  }
+
+  /* ── QUOTE STRIP ── */
+  .quote-strip {
+    padding:72px 24px; text-align:center;
+    background:linear-gradient(135deg,rgba(212,168,67,0.04),rgba(10,15,46,0.8),rgba(212,168,67,0.04));
+    border-top:1px solid rgba(212,168,67,0.1);
+    border-bottom:1px solid rgba(212,168,67,0.1);
+    position:relative; z-index:1;
+  }
+  .quote-strip p{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,2.1rem);
+    font-style:italic;color:var(--moonlight);max-width:780px;margin:0 auto;line-height:1.7;direction:ltr;
+  }
+  .quote-strip span{color:var(--gold-light);}
+
+  /* ── DUAS TICKER ── */
+  .duas-scroll{
+    overflow:hidden;padding:14px 0;position:relative;z-index:1;
+    mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
+  }
+  .duas-track{
+    display:flex;gap:40px;width:max-content;
+    animation:scrollLeft 42s linear infinite;
+  }
+  .duas-track:hover{animation-play-state:paused;}
+  @keyframes scrollLeft{to{transform:translateX(-50%);}}
+  .dua-pill{
+    flex-shrink:0;font-family:'Amiri',serif;font-size:1.1rem;color:var(--gold);
+    border:1px solid rgba(212,168,67,0.25);padding:9px 26px;white-space:nowrap;
+    background:rgba(212,168,67,0.05);text-shadow:0 0 12px rgba(212,168,67,0.4);
+  }
+
+  /* ── STAR QUOTES ── */
+  .star-quote{
+    padding:28px 24px;text-align:center;
+    border:1px solid rgba(212,168,67,0.12);
+    background:rgba(255,255,255,0.02);backdrop-filter:blur(8px);
+    transition:all .4s;opacity:0;transform:translateY(30px);height:100%;
+  }
+  .star-quote.visible{animation:cardReveal .8s ease forwards;}
+  .star-quote:hover{border-color:rgba(212,168,67,0.35);transform:translateY(-5px);}
+  .star-quote .star{font-size:1.5rem;margin-bottom:14px;display:block;}
+  .star-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.02rem;color:rgba(220,230,255,0.8);line-height:1.7;direction:ltr;margin:0;}
+
+  /* ── GEO ORNAMENT ── */
+  .geo-ornament{position:absolute;opacity:.04;pointer-events:none;animation:geoRotate 60s linear infinite;}
+  @keyframes geoRotate{to{transform:rotate(360deg);}}
+
+  /* ── FOOTER ── */
+  footer{
+    position:relative;z-index:1;padding:56px 24px 36px;text-align:center;
+    border-top:1px solid rgba(212,168,67,0.12);
+  }
+  .footer-arabic{font-family:'Amiri',serif;font-size:1.4rem;color:var(--gold);margin-bottom:12px;}
+  .footer-sub{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:rgba(255,255,255,0.3);direction:ltr;}
+
+  /* ── INTRO ── */
+  #intro-overlay{
+    position:fixed;inset:0;z-index:9000;background:var(--midnight);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    transition:opacity 1.5s ease,visibility 1.5s ease;
+  }
+  #intro-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+  .intro-text{
+    font-family:'Amiri',serif;font-size:clamp(1.8rem,5vw,3.2rem);
+    color:var(--gold);text-align:center;
+    text-shadow:0 0 40px rgba(212,168,67,0.8);
+    animation:introPulse 2s ease-in-out infinite;margin-bottom:10px;
+  }
+  .intro-sub{font-family:'Cinzel Decorative',serif;font-size:clamp(.75rem,2vw,1rem);color:var(--silver);letter-spacing:4px;direction:ltr;opacity:.7;}
+  @keyframes introPulse{
+    0%,100%{text-shadow:0 0 40px rgba(212,168,67,.8),0 0 80px rgba(212,168,67,.3);}
+    50%    {text-shadow:0 0 60px rgba(212,168,67,1),0 0 120px rgba(212,168,67,.6),0 0 200px rgba(212,168,67,.2);}
+  }
+  .intro-loader{width:120px;height:1px;background:rgba(212,168,67,0.2);margin-top:36px;overflow:hidden;}
+  .intro-loader-bar{width:0;height:100%;background:linear-gradient(to right,transparent,var(--gold),transparent);animation:loadBar 2.5s ease forwards;}
+  @keyframes loadBar{to{width:100%;}}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+  /* Bootstrap row/col spacing override for RTL */
+  [dir="rtl"] .row { direction: ltr; }
+  [dir="rtl"] .col, [dir="rtl"] [class*="col-"] { direction: rtl; }
+</style>
+</head>
+<body>
+
+<!-- Intro -->
+<div id="intro-overlay">
+  <p class="intro-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+  <p class="intro-sub">✨ A Universe of Prayers for Youssra ✨</p>
+  <div class="intro-loader"><div class="intro-loader-bar"></div></div>
+</div>
+
+<!-- Cursor -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- Canvas -->
+<canvas id="sky-canvas"></canvas>
+
+<!-- ── BOOTSTRAP NAVBAR ── -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-xl">
+    <a class="navbar-brand" href="#hero">يُسرى ✨</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#love">💖 Love</a></li>
+        <li class="nav-item"><a class="nav-link" href="#success">✨ Success</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blessings">🌙 Blessings</a></li>
+        <li class="nav-item"><a class="nav-link" href="#peace">🕊️ Peace</a></li>
+        <li class="nav-item"><a class="nav-link" href="#hope">⭐ Hope</a></li>
+        <li class="nav-item"><a class="nav-link" href="#duas">🤲 Duas</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link nav-btn-enter" href="#love">Enter the Universe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="moon-container">
+    <div class="moon"></div>
+    <div class="moon-ring"></div>
+    <div class="moon-ring"></div>
+  </div>
+
+  <p class="hero-eyebrow">— A Spiritual Love Letter to —</p>
+  <h1 class="hero-title">✨ Prayers & Light For Youssra ✨</h1>
+  <p class="hero-arabic">اللهم اجعل ليسرى نورًا يمشي معها أينما ذهبت</p>
+  <p class="hero-quote">"She deserves peace, success, happiness, and a future brighter than the stars."</p>
+
+  <!-- Quick-jump pills -->
+  <div class="hero-nav-pills">
+    <a href="#love"     class="hero-pill">💖 Love</a>
+    <a href="#success"  class="hero-pill">✨ Success</a>
+    <a href="#blessings"class="hero-pill">🌙 Blessings</a>
+    <a href="#peace"    class="hero-pill">🕊️ Peace</a>
+    <a href="#hope"     class="hero-pill">⭐ Hope</a>
+    <a href="#duas"     class="hero-pill">🤲 Duas</a>
+  </div>
+
+  <a href="#love" class="hero-cta">✨ Enter the Universe ✨</a>
+
+  <div class="scroll-indicator"><span></span></div>
+</section>
+
+<!-- ── DUAS TICKER ── -->
+<div class="duas-scroll">
+  <div class="duas-track" id="duas-track">
+    <span class="dua-pill">اللهم ارزق يسرى سعادة لا تنتهي</span>
+    <span class="dua-pill">اللهم اجعل قلبها مطمئنًا دائمًا</span>
+    <span class="dua-pill">اللهم افتح لها أبواب النجاح والرزق</span>
+    <span class="dua-pill">اللهم أبعد عنها الحزن والخذلان</span>
+    <span class="dua-pill">اللهم حقق لها أحلامًا أكبر مما تتخيل</span>
+    <span class="dua-pill">اللهم اجعل طريقها نورًا ويسرًا</span>
+    <span class="dua-pill">اللهم احفظها في كل لحظة</span>
+    <span class="dua-pill">اللهم ارزق يسرى سعادة لا تنتهي</span>
+    <span class="dua-pill">اللهم اجعل قلبها مطمئنًا دائمًا</span>
+    <span class="dua-pill">اللهم افتح لها أبواب النجاح والرزق</span>
+    <span class="dua-pill">اللهم أبعد عنها الحزن والخذلان</span>
+    <span class="dua-pill">اللهم حقق لها أحلامًا أكبر مما تتخيل</span>
+    <span class="dua-pill">اللهم اجعل طريقها نورًا ويسرًا</span>
+    <span class="dua-pill">اللهم احفظها في كل لحظة</span>
+  </div>
+</div>
+
+<!-- ── LOVE ── -->
+<section id="love">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section I</span>
+      <h2 class="section-title">💖 Love & Pure Heart</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">💖</span>
+          <h3 class="card-title">A Heart of Light</h3>
+          <p class="card-arabic">اللهم اجعل قلب يسرى مطمئنًا بذكرك</p>
+          <p class="card-text">May her heart always find rest in faith, love, and the quiet beauty of knowing she is deeply cherished by the universe itself.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌹</span>
+          <h3 class="card-title">Pure Love</h3>
+          <p class="card-arabic">اللهم أحط يسرى بمن يحبها لوجهك</p>
+          <p class="card-text">She carries a love so pure it leaves traces of light wherever she walks. The stars themselves bow to the warmth within her soul.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🕊️</span>
+          <h3 class="card-title">Divine Warmth</h3>
+          <p class="card-arabic">اللهم اغمر قلبها بمحبتك وحنانك</p>
+          <p class="card-text">Allah's love for her is infinite — a warm ocean without shores, a light that never dims, a mercy that wraps around her every breath.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE 1 -->
+<div class="quote-strip">
+  <p>"Every star in the sky carries <span>a prayer for Youssra</span>. The moon keeps vigil over her dreams."</p>
+</div>
+
+<!-- ── SUCCESS ── -->
+<section id="success">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section II</span>
+      <h2 class="section-title">✨ Success & Dreams</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">✨</span>
+          <h3 class="card-title">Boundless Success</h3>
+          <p class="card-arabic">اللهم افتح لها أبواب النجاح والرزق الواسع</p>
+          <p class="card-text">Every door that opens for her will lead to something greater than she imagined. Her journey is blessed, her path is illuminated.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌠</span>
+          <h3 class="card-title">Dreams Beyond Stars</h3>
+          <p class="card-arabic">اللهم حقق لها أحلامًا أكبر مما تتخيل</p>
+          <p class="card-text">She is becoming the person she once prayed to be. Her dreams are not too big — they are exactly the right size for the soul Allah gave her.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🏆</span>
+          <h3 class="card-title">Destined for Greatness</h3>
+          <p class="card-arabic">اللهم بارك لها في كل خطوة تخطوها</p>
+          <p class="card-text">The universe is conspiring in her favor. Every step she takes is watched over, every effort multiplied, every sacrifice honored by the Divine.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLESSINGS ── -->
+<section id="blessings">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section III</span>
+      <h2 class="section-title">🌙 Future Blessings</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌙</span>
+          <h3 class="card-title">Glorious Tomorrow</h3>
+          <p class="card-arabic">اللهم اجعل مستقبل يسرى أجمل مما تحلم</p>
+          <p class="card-text">Her future will shine brighter than the moonlight. Allah is preparing beautiful things for her — things that will take her breath away.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">⭐</span>
+          <h3 class="card-title">Endless Abundance</h3>
+          <p class="card-arabic">اللهم ارزقها من حيث لا تحتسب</p>
+          <p class="card-text">Rizq comes in forms we cannot always see. May her provisions flow like rivers of light — in health, in love, in peace, in every blessing.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌸</span>
+          <h3 class="card-title">Beautiful Destiny</h3>
+          <p class="card-arabic">اللهم اكتب لها أجمل قدر في الدنيا والآخرة</p>
+          <p class="card-text">What Allah has written for her is beyond what human hearts can fully comprehend. Trust the timing. Her story is not over — it is just beginning.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE 2 -->
+<div class="quote-strip">
+  <p>"<span>Allah is preparing beautiful things for her.</span> Things she cannot yet see, cannot yet hold — but will one day call her greatest blessings."</p>
+</div>
+
+<!-- ── PEACE ── -->
+<section id="peace">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section IV</span>
+      <h2 class="section-title">🕊️ Peace & Protection</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🕊️</span>
+          <h3 class="card-title">Divine Protection</h3>
+          <p class="card-arabic">اللهم احفظ يسرى من كل سوء وأذى</p>
+          <p class="card-text">May the angels surround her at every moment. May no harm reach her, no sorrow linger, and no darkness find its way to her light.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🤍</span>
+          <h3 class="card-title">Tranquil Soul</h3>
+          <p class="card-arabic">اللهم اجعل قلبها مطمئنًا سكينةً وهدوءً</p>
+          <p class="card-text">In a world of noise, may she always find her silence. A peace so deep it becomes her home — carried within her wherever she goes.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🛡️</span>
+          <h3 class="card-title">Safe from Sorrow</h3>
+          <p class="card-arabic">اللهم أبعد عنها الحزن والخذلان والضيق</p>
+          <p class="card-text">She has weathered enough storms. May clear skies follow her now. May grief become a distant memory replaced by endless, golden mornings.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HAPPINESS & HEALING (bonus section) ── -->
+<section id="healing">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section V</span>
+      <h2 class="section-title">🌸 Happiness & Healing</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌸</span>
+          <h3 class="card-title">Infinite Joy</h3>
+          <p class="card-arabic">اللهم ارزق يسرى سعادة لا تنتهي ولا تزول</p>
+          <p class="card-text">May her laughter echo through the universe. May joy find her in the morning, follow her through the day, and tuck her in at night.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">💊</span>
+          <h3 class="card-title">Sacred Healing</h3>
+          <p class="card-arabic">اللهم اشفِ قلبها من كل جرح وألم</p>
+          <p class="card-text">Every wound heals. Every scar becomes a story of survival. She is not broken — she is beautifully, powerfully being made whole again.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">☀️</span>
+          <h3 class="card-title">Radiant Being</h3>
+          <p class="card-arabic">اللهم اجعلها نورًا يضيء حياة من حولها</p>
+          <p class="card-text">Even the night sky glows when Youssra smiles. She doesn't just carry light — she creates it. She is the sunrise others pray for.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOPE ── -->
+<section id="hope">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section VI</span>
+      <h2 class="section-title">⭐ Motivation & Hope</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">⭐</span>
+          <p>"Every star in the sky carries a prayer for Youssra."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">🌙</span>
+          <p>"Her future will shine brighter than the moonlight."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">🤲</span>
+          <p>"She is becoming the person she once prayed to be."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">✨</span>
+          <p>"Allah is preparing beautiful things for her."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">💫</span>
+          <p>"Even the night sky glows when Youssra smiles."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">🌸</span>
+          <p>"She is not lost — she is being guided somewhere extraordinary."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">🕊️</span>
+          <p>"Her patience today is building her paradise tomorrow."</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="star-quote">
+          <span class="star">🌟</span>
+          <p>"The universe has always had her name written in the stars."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DUAS ── -->
+<section id="duas">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Section VII</span>
+      <h2 class="section-title">🤲 Spiritual Duas</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🤲</span>
+          <h3 class="card-title">Dua of Light</h3>
+          <p class="card-arabic">اللهم اجعل ليسرى نورًا في قلبها ونورًا في بصرها</p>
+          <p class="card-text">May light fill every corner of her being — her mind, her heart, her sight, her path, her past, and every tomorrow yet to come.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌿</span>
+          <h3 class="card-title">Dua of Ease</h3>
+          <p class="card-arabic">اللهم يسِّر لها الأمور وأصلح لها شأنها كله</p>
+          <p class="card-text">Where there is difficulty, may Allah open doors. Where there are walls, may He grant wings. Her ease comes from the Most Merciful.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌺</span>
+          <h3 class="card-title">Dua of the Heart</h3>
+          <p class="card-arabic">اللهم اجعل قلب يسرى مليئًا بالأمل والإيمان</p>
+          <p class="card-text">A heart full of hope is a heart that cannot be defeated. May her iman be her anchor, her light, and her greatest companion.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">🌙</span>
+          <h3 class="card-title">Dua of the Night</h3>
+          <p class="card-arabic">اللهم آنسها في وحدتها وأرحها في تعبها</p>
+          <p class="card-text">In the quiet of night when the world sleeps, may she feel seen, held, and loved by the Creator who never sleeps.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">⭐</span>
+          <h3 class="card-title">Dua of the Morning</h3>
+          <p class="card-arabic">اللهم اجعل كل صباح ليسرى بداية جديدة وجميلة</p>
+          <p class="card-text">Every dawn is a gift wrapped just for her. A new beginning. A fresh mercy. A chance to rise even higher than yesterday.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <span class="card-icon">💎</span>
+          <h3 class="card-title">Dua of the Future</h3>
+          <p class="card-arabic">اللهم اجعل نهايتها خيرًا من بدايتها</p>
+          <p class="card-text">Her best chapters are still unwritten. The most beautiful version of her story is the one Allah is authoring right now, with love.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL QUOTE -->
+<div class="quote-strip" style="padding:90px 24px;">
+  <p style="font-size:clamp(1.5rem,4vw,2.6rem);color:var(--gold-light);">"<span>يُسرى</span>"</p>
+  <p style="margin-top:18px;font-size:clamp(1rem,2vw,1.4rem);">A name that means ease. A soul that brings light.<br>A heart that deserves the entire universe.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-arabic">اللهم احفظ يسرى وبارك في حياتها</p>
+  <p class="footer-sub">Made with love, prayers, and starlight · For Youssra, always ✨</p>
+</footer>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ── INTRO ── */
+setTimeout(()=>document.getElementById('intro-overlay').classList.add('hidden'), 2800);
+
+/* ── SMOOTH SCROLL for all anchor links (Bootstrap + custom) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(!target) return;
+    e.preventDefault();
+    // close mobile menu if open
+    const bsCollapse = bootstrap.Collapse.getInstance(document.getElementById('mainNav'));
+    if(bsCollapse) bsCollapse.hide();
+    // scroll with offset for fixed nav
+    const navH = document.querySelector('.navbar').offsetHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - navH - 10;
+    window.scrollTo({ top, behavior:'smooth' });
+  });
+});
+
+/* ── CURSOR ── */
+const cursor=document.getElementById('cursor');
+const trail=document.getElementById('cursor-trail');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+});
+(function animTrail(){
+  tx+=(mx-tx)*.12; ty+=(my-ty)*.12;
+  trail.style.left=tx+'px'; trail.style.top=ty+'px';
+  requestAnimationFrame(animTrail);
+})();
+
+/* ── CANVAS SKY ── */
+const canvas=document.getElementById('sky-canvas');
+const ctx=canvas.getContext('2d');
+let W,H;
+function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+resize(); window.addEventListener('resize',resize);
+
+/* Stars */
+const STARS=[];
+for(let i=0;i<320;i++) STARS.push({
+  x:Math.random()*2000, y:Math.random()*1400,
+  r:Math.random()*1.4+.2,
+  a:Math.random(), da:Math.random()*.008+.002,
+  speed:Math.random()*.04+.01
+});
+
+/* Shooting stars */
+const SHOOTS=[];
+function makeShoot(){return{x:Math.random()*2000+200,y:Math.random()*400-50,len:Math.random()*160+80,speed:Math.random()*14+8,angle:Math.PI/4+Math.random()*.3,life:1,decay:Math.random()*.025+.015};}
+for(let i=0;i<5;i++) SHOOTS.push(makeShoot());
+
+/* Lanterns */
+const LANTERNS=[];
+for(let i=0;i<14;i++) LANTERNS.push({
+  x:Math.random()*2000, y:Math.random()*H+200,
+  vy:-(Math.random()*.4+.15), vx:(Math.random()-.5)*.2,
+  size:Math.random()*10+10, glow:Math.random(), dg:Math.random()*.02+.005, hue:Math.random()*30+30
+});
+
+/* Hearts */
+const HEARTS=[];
+for(let i=0;i<18;i++) HEARTS.push({
+  x:Math.random()*2000, y:Math.random()*H+100,
+  vy:-(Math.random()*.3+.1), vx:(Math.random()-.5)*.15,
+  size:Math.random()*8+5, alpha:Math.random()*.4+.15, da:Math.random()*.003
+});
+
+/* Cursor particles */
+const PARTICLES=[];
+document.addEventListener('mousemove',e=>{
+  for(let i=0;i<2;i++) PARTICLES.push({x:e.clientX,y:e.clientY+window.scrollY,vx:(Math.random()-.5)*2,vy:(Math.random()-.5)*2,life:1,r:Math.random()*3+1});
+  if(PARTICLES.length>200) PARTICLES.splice(0,50);
+});
+
+function drawHeart(cx,cy,s,alpha){
+  ctx.save(); ctx.globalAlpha=alpha;
+  ctx.fillStyle='rgba(212,130,100,0.8)';
+  ctx.beginPath();
+  ctx.moveTo(cx,cy);
+  ctx.bezierCurveTo(cx,cy-s*.4,cx+s*.6,cy-s*.9,cx+s*.6,cy-s*.5);
+  ctx.bezierCurveTo(cx+s*.6,cy,cx,cy+s*.6,cx,cy+s*.6);
+  ctx.bezierCurveTo(cx,cy+s*.6,cx-s*.6,cy,cx-s*.6,cy-s*.5);
+  ctx.bezierCurveTo(cx-s*.6,cy-s*.9,cx,cy-s*.4,cx,cy);
+  ctx.fill(); ctx.restore();
+}
+
+function drawLantern(x,y,s,glow,hue){
+  ctx.save();
+  const g=ctx.createRadialGradient(x,y,0,x,y,s*2.5);
+  g.addColorStop(0,`hsla(${hue},90%,70%,${0.3+glow*.3})`);
+  g.addColorStop(1,'transparent');
+  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,s*2.5,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=`hsla(${hue},80%,65%,0.7)`;
+  ctx.beginPath(); ctx.roundRect(x-s*.45,y-s*.7,s*.9,s*1.4,s*.15); ctx.fill();
+  ctx.restore();
+}
+
+let scrollY=0;
+window.addEventListener('scroll',()=>{ scrollY=window.scrollY; });
+
+let frame=0;
+function draw(){
+  frame++;
+  ctx.clearRect(0,0,W,H);
+  const bg=ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,'#02040f'); bg.addColorStop(.5,'#060c1e'); bg.addColorStop(1,'#0a0f2e');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+  /* nebula */
+  for(let i=0;i<4;i++){
+    const nx=(i*600+frame*.08+scrollY*.05)%2400-200;
+    const ny=120+i*80+Math.sin(frame*.005+i)*30;
+    const ngr=ctx.createRadialGradient(nx,ny,0,nx,ny,280);
+    ngr.addColorStop(0,`rgba(${i%2?30:20},${i%2?20:30},80,0.06)`);
+    ngr.addColorStop(1,'transparent');
+    ctx.fillStyle=ngr; ctx.beginPath(); ctx.ellipse(nx,ny,280,120,0,0,Math.PI*2); ctx.fill();
+  }
+
+  /* stars */
+  STARS.forEach(s=>{
+    s.a+=s.da; if(s.a>1||s.a<0) s.da*=-1;
+    const sx=(s.x+frame*s.speed)%W, sy=s.y%(H+50);
+    ctx.save(); ctx.globalAlpha=s.a*.9; ctx.fillStyle='#e8f0ff';
+    ctx.shadowColor='#c8d8ff'; ctx.shadowBlur=s.r*4;
+    ctx.beginPath(); ctx.arc(sx,sy,s.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+  });
+
+  /* shooting */
+  SHOOTS.forEach((s,i)=>{
+    s.x+=Math.cos(s.angle)*s.speed; s.y+=Math.sin(s.angle)*s.speed; s.life-=s.decay;
+    if(s.life<=0||s.x>W+200||s.y>H+200) SHOOTS[i]=makeShoot();
+    ctx.save(); ctx.globalAlpha=s.life*.8;
+    const gx=ctx.createLinearGradient(s.x,s.y,s.x-Math.cos(s.angle)*s.len,s.y-Math.sin(s.angle)*s.len);
+    gx.addColorStop(0,'rgba(255,240,180,0.9)'); gx.addColorStop(1,'transparent');
+    ctx.strokeStyle=gx; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x-Math.cos(s.angle)*s.len,s.y-Math.sin(s.angle)*s.len);
+    ctx.stroke(); ctx.restore();
+  });
+
+  /* lanterns */
+  LANTERNS.forEach(l=>{
+    l.x+=l.vx; l.y+=l.vy; l.glow+=l.dg; if(l.glow>1||l.glow<0) l.dg*=-1;
+    if(l.y<-60){ l.y=H+80; l.x=Math.random()*W; }
+    drawLantern(l.x,l.y,l.size,l.glow,l.hue);
+  });
+
+  /* hearts */
+  HEARTS.forEach(h=>{
+    h.x+=h.vx; h.y+=h.vy; h.alpha+=Math.sin(frame*.02)*h.da;
+    h.alpha=Math.max(.05,Math.min(.5,h.alpha));
+    if(h.y<-40){ h.y=H+60; h.x=Math.random()*W; }
+    drawHeart(h.x,h.y,h.size,h.alpha);
+  });
+
+  /* cursor particles */
+  for(let i=PARTICLES.length-1;i>=0;i--){
+    const p=PARTICLES[i];
+    p.x+=p.vx; p.y+=p.vy; p.life-=.03;
+    if(p.life<=0){ PARTICLES.splice(i,1); continue; }
+    ctx.save(); ctx.globalAlpha=p.life*.7;
+    ctx.fillStyle=`rgba(212,168,67,${p.life})`;
+    ctx.shadowColor='#f0c96a'; ctx.shadowBlur=8;
+    ctx.beginPath(); ctx.arc(p.x,p.y-scrollY,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* ── SCROLL REVEAL ── */
+const revealEls=document.querySelectorAll('.card, .star-quote');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((e,idx)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'), idx*80);
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+revealEls.forEach(el=>observer.observe(el));
+
+/* ── NAVBAR ACTIVE STATE on scroll ── */
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-link[href^="#"]');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 120) current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.style.color='';
+    if(a.getAttribute('href')==='#'+current){
+      a.style.color='var(--gold-light)';
+      a.style.textShadow='0 0 12px var(--gold)';
+    } else { a.style.textShadow=''; }
+  });
+});
+
+/* ── GEO ORNAMENTS ── */
+document.querySelectorAll('section').forEach((s,i)=>{
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 200 200');
+  svg.setAttribute('width','280'); svg.setAttribute('height','280');
+  svg.classList.add('geo-ornament');
+  svg.style.cssText=`right:-50px;${i%2?'top':'bottom'}:-50px;`;
+  svg.innerHTML=`
+    <polygon points="100,10 130,70 195,70 145,110 165,170 100,130 35,170 55,110 5,70 70,70" fill="none" stroke="#d4a843" stroke-width=".5"/>
+    <polygon points="100,30 122,65 160,65 135,90 148,130 100,110 52,130 65,90 40,65 78,65" fill="none" stroke="#d4a843" stroke-width=".3"/>
+    <circle cx="100" cy="100" r="80" fill="none" stroke="#d4a843" stroke-width=".3" stroke-dasharray="4 8"/>
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#d4a843" stroke-width=".2"/>
+  `;
+  s.appendChild(svg);
+});
+</script>
+</body>
+</html>
